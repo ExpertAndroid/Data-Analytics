@@ -1,8 +1,8 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-# import matplotlib.pylab as plt
-# import seaborn as sns
+import matplotlib.pylab as plt
+import seaborn as sns
 
 mydata = pd.read_csv('D:\\Big Data Analytics\\Pythonpractice\\pandas\\Cleaned_ball_by_ball.csv')
 st.title("Ball By Ball IT20 Data")
