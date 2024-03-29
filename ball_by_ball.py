@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.graph_objs as go  # Import Plotly for creating interactive plots
 import seaborn as sns
 
 # Load data
@@ -30,12 +30,12 @@ def batFirstandSecondWins():
     categories = ['Batting First', 'Batting Second']
     wins_count = [bat_first_wins, bat_second_wins]
 
-    fig, ax = plt.subplots()
-    ax.bar(categories, wins_count, color=['blue', 'yellow'])
-    ax.set_title('Wins by Batting First vs. Batting Second')
-    ax.set_ylabel('Number of Wins')
-    ax.set_xlabel('Batting Team')
-    st.pyplot(fig)
+    # Create Plotly bar chart
+    fig = go.Figure(data=[go.Bar(x=categories, y=wins_count, marker=dict(color=['blue', 'yellow']))])
+    fig.update_layout(title='Wins by Batting First vs. Batting Second',
+                      xaxis_title='Batting Team',
+                      yaxis_title='Number of Wins')
+    st.plotly_chart(fig)
 
 # Function to plot bar chart for top 10 winning countries
 def top10winningCountries():
@@ -63,16 +63,12 @@ def top10winningCountries():
     # Retrieve the colors for the top 10 countries
     colors = [country_colors.get(country, 'gray') for country in top_10_countries.index]
 
-    # Convert top_10_countries to a Series object
-    top_10_countries_series = pd.Series(top_10_countries.values, index=top_10_countries.index)
-
-    plt.figure(figsize=(8, 6))
-    top_10_countries_series.plot(kind='bar', color=colors)
-    plt.title('Top 10 Countries of Most Winnings')
-    plt.xlabel('Country')
-    plt.ylabel('Number of Matches Won')
-    plt.xticks(rotation=45)
-    st.pyplot(plt)
+    # Create Plotly bar chart
+    fig = go.Figure(data=[go.Bar(x=top_10_countries.index, y=top_10_countries.values, marker=dict(color=colors))])
+    fig.update_layout(title='Top 10 Countries of Most Winnings',
+                      xaxis_title='Country',
+                      yaxis_title='Number of Matches Won')
+    st.plotly_chart(fig)
 
  
 
@@ -83,12 +79,12 @@ def chasedScuccessfully():
     won = (unique_matches3 > 0).sum()
     lost = (unique_matches3 == 0).sum()
 
-    fig, ax = plt.subplots()
-    ax.bar(['Successfully Chased', 'Unsuccessfully Chased'], [won, lost], color=['green', 'red'])
-    ax.set_title('Matches Result with Target Score > 200')
-    ax.set_ylabel('Number of Matches')
-    ax.set_xlabel('Result')
-    st.pyplot(fig)
+    # Create Plotly bar chart
+    fig = go.Figure(data=[go.Bar(x=['Successfully Chased', 'Unsuccessfully Chased'], y=[won, lost], marker=dict(color=['green', 'red']))])
+    fig.update_layout(title='Matches Result with Target Score > 200',
+                      xaxis_title='Result',
+                      yaxis_title='Number of Matches')
+    st.plotly_chart(fig)
 
 # Function to plot bar chart for most successful chased grounds
 def mostSuccessfullChasedGrounds():
@@ -97,15 +93,12 @@ def mostSuccessfullChasedGrounds():
 
     shortened_venues = [venue[:15] + '...' if len(venue) > 15 else venue for venue in top_10_venues.index]
 
-    colors = sns.color_palette('Set2', n_colors=len(top_10_venues))
-    
-    plt.figure(figsize=(8, 6))
-    bars = plt.bar(shortened_venues, top_10_venues.values, color=colors)
-    plt.title('Successful Chases by Venue')
-    plt.xlabel('Venue')
-    plt.ylabel('Number of Successful Chases')
-    plt.xticks(rotation=90)
-    st.pyplot(plt)
+    # Create Plotly bar chart
+    fig = go.Figure(data=[go.Bar(x=shortened_venues, y=top_10_venues.values, marker=dict(color=sns.color_palette('Set2', n_colors=len(top_10_venues))))])
+    fig.update_layout(title='Successful Chases by Venue',
+                      xaxis_title='Venue',
+                      yaxis_title='Number of Successful Chases')
+    st.plotly_chart(fig)
 
 # Calling functions
 mostSuccessfullChasedGrounds()
