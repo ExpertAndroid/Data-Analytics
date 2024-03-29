@@ -9,12 +9,13 @@ file_path = 'Cleaned_ball_by_ball.csv'
 
 if os.path.exists(file_path):
     mydata = pd.read_csv(file_path)
+    st.title("Ball By Ball IT20 Data")
+    st.header("Cricket")
+    st.write('Hello Streamlit')
     st.write(mydata)
 else:
     print("File does not exist:", file_path)
-st.title("Ball By Ball IT20 Data")
-st.header("Cricket")
-st.write('Hello Streamlit')
+
 # st.write(mydata)
 # unique_matches = ''
 # st.dataframe(mydata)
