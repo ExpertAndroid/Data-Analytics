@@ -15,7 +15,7 @@ else:
 st.title("Ball By Ball IT20 Data")
 st.header("Cricket")
 st.write('Hello Streamlit')
-st.write(mydata)
+# st.write(mydata)
 # unique_matches = ''
 # st.dataframe(mydata)
 
