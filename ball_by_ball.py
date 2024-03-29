@@ -5,7 +5,7 @@ import pandas as pd
 # import seaborn as sns
 import os
 
-file_path = 'D:\\Big Data Analytics\\Pythonpractice\\pandas\\Cleaned_ball_by_ball.csv'
+file_path = 'Cleaned_ball_by_ball.csv'
 
 if os.path.exists(file_path):
     mydata = pd.read_csv(file_path)
