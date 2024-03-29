@@ -3,11 +3,18 @@ import numpy as np
 import pandas as pd
 # import matplotlib.pylab as plt
 # import seaborn as sns
+import os
 
-mydata = pd.read_csv('D:\\Big Data Analytics\\Pythonpractice\\pandas\\Cleaned_ball_by_ball.csv')
+file_path = 'D:\\Big Data Analytics\\Pythonpractice\\pandas\\Cleaned_ball_by_ball.csv'
+
+if os.path.exists(file_path):
+    mydata = pd.read_csv(file_path)
+else:
+    print("File does not exist:", file_path)
 st.title("Ball By Ball IT20 Data")
 st.header("Cricket")
 st.write('Hello Streamlit')
+st.write(mydata)
 # unique_matches = ''
 # st.dataframe(mydata)
 
