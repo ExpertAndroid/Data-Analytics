@@ -9,7 +9,7 @@ st.title("Ball By Ball IT20 Data")
 st.header("Cricket")
 st.write('Hello Streamlit')
 # unique_matches = ''
-st.dataframe(mydata)
+# st.dataframe(mydata)
 
 
 # with st.sidebar:
