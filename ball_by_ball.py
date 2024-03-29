@@ -34,13 +34,6 @@ def batFirstandSecondWins():
     ax.set_xlabel('Batting Team')
     st.pyplot(fig)
 
-   #  plot1 = plt.bar(categories, wins_count, color=['blue', 'green'])
-   #  plt.title('Wins by Batting First vs. Batting Second')
-   #  plt.xlabel('Batting Team')
-   #  plt.ylabel('Number of Wins')
-   #  st.bar_chart(plot1.datavalues)
-   #  # plt.show()
-
 def top10winningCountries():
     unique_countries = mydata.groupby('Match ID')['Winner'].unique().value_counts()
 
