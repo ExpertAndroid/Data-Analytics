@@ -9,6 +9,7 @@ file_path = 'Cleaned_ball_by_ball.csv'
 
 if os.path.exists(file_path):
     mydata = pd.read_csv(file_path)
+    st.write(mydata)
 else:
     print("File does not exist:", file_path)
 st.title("Ball By Ball IT20 Data")
