@@ -1,17 +1,15 @@
 import streamlit as st
-
-st.write('Hello World')
-# import numpy as np
-# import pandas as pd
+import numpy as np
+import pandas as pd
 # import matplotlib.pylab as plt
 # import seaborn as sns
 
-# mydata = pd.read_csv('D:\\Big Data Analytics\\Pythonpractice\\pandas\\Cleaned_ball_by_ball.csv')
-# st.title("Ball By Ball IT20 Data")
-# st.header("Cricket")
-# st.write('Hello Streamlit')
-# unique_matches = ''
-# st.dataframe(mydata)
+mydata = pd.read_csv('D:\\Big Data Analytics\\Pythonpractice\\pandas\\Cleaned_ball_by_ball.csv')
+st.title("Ball By Ball IT20 Data")
+st.header("Cricket")
+st.write('Hello Streamlit')
+unique_matches = ''
+st.dataframe(mydata)
 
 
 # with st.sidebar:
